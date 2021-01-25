@@ -1,0 +1,21 @@
+﻿language: csharp
+solution: DotNetCore-Travis.sln
+dotnet: 5.0.102
+services:
+    - docker
+
+install:
+    - echo "nothing needs to be installed"
+
+before_script:
+    - echo "no tests"
+
+script:
+    - dotnet restore
+    - docker --version 
+    - docker build -t gbolarhan/dotnetecore-tavis .
+    - docker tag glo gbolarhan/dotnetecore-tavis:latest
+
+after_success:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - docker push gbolarhan/dotnetecore-tavis
