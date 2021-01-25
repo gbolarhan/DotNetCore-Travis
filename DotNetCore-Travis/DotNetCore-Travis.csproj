@@ -9,4 +9,12 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove=".travis.yml" />
+    <None Remove="Dockerfile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include=".travis.yml" />
+    <Compile Include="Dockerfile" />
+  </ItemGroup>
 </Project>

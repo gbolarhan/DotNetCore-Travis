@@ -14,7 +14,7 @@ script:
     - dotnet restore
     - docker --version 
     - docker build -t gbolarhan/dotnetecore-tavis .
-    - docker tag glo gbolarhan/dotnetecore-tavis:latest
+    - docker tag dottravis gbolarhan/dotnetecore-tavis:latest
 
 after_success:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
